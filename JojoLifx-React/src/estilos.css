@@ -1,0 +1,1501 @@
+footer {
+	text-align: right;
+	color: #ffffff;
+	margin-right: 3%;
+	text-size-adjust: auto;
+	font-size: large;
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+	width: 90%;
+}
+
+@font-face {
+  font-family: 'BECK_FONT';
+  src: url('../fonts/BECK_FONT.ttf') format('truetype');
+}
+
+.beck-font {
+  font-family: 'BECK_FONT', sans-serif;
+}
+
+:root {
+	--rojo: #9c09e5;
+	--fondo: #141414;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--fondo);
+	font-family: 'Open Sans', sans-serif;
+}
+
+.contenedor {
+	width: 90%;
+	margin: auto;
+}
+
+header {
+	padding: 30px 0;
+}
+
+header .contenedor {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .logotipo {
+	font-family: 'Bebas Neue', cursive;
+	font-weight: normal;
+	font-size: 40px;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+header nav a {
+	color: #AAA;
+	text-decoration: none;
+	margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+	color: #FFF;
+}
+
+.pelicula-principal {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/jojobaner2.jpg), center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 6.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+	max-width: 110%;
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+@media screen and (max-width: 800px) {
+	header .logotipo {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	header .contenedor {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.pelicula-principal {
+		font-size: 14px;
+	}
+
+	.pelicula-principal .descripcion {
+		max-width: 100%;
+	}
+}
+
+.pelicula-principal1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/phantomblood.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal1 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/bt.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal2 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/sc.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal3 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/uib.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal4 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/gw.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal5 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principal6 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Stone-Ocean-Header-1000x600.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principal6 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principal6 .titulo {
+	font-weight: 600;
+	font-family: Impact, serif;
+	font-size: 3.12em;
+	font-style: italic;
+	margin-bottom: 0.4em;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+}
+
+.pelicula-principal6 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.ep {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background-position: center center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.ep .contenedor {
+	margin: 8px auto 6.25em;
+}
+
+.ep .titulo {
+	font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+
+.ep .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.ep .boton {
+	background: rgba(51, 49, 49, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 40%;
+}
+
+.ep .boton:hover {
+	background: #fff;
+	color: #333131;
+}
+
+.ep .boton i {
+	margin-right: 1.25em;
+}
+
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+}
+
+.pelicula-principalMonster .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+.pelicula-principalBerserk .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk1 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerlaedaddorada.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk1 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk1 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.pelicula-principalBerserk1 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk2 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerelespadachin.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk2 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk2 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+.pelicula-principalBerserk2 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk3 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannercondena.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk3 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk3 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+.pelicula-principalBerserk3 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk4 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerhalcon.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk4 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk4 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+.pelicula-principalBerserk4 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBerserk5 {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Berserkbannerfantasia.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalBerserk5 .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalBerserk5 .titulo {
+    font-family:"Times New Roman", serif;
+    font-weight: 600;
+    font-size: 6.12em;
+    margin-bottom: 0.4em;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff00008b, 0 0 20px #ff00008b, 0 0 30px #ff00008b, 0 0 40px #ff0000;
+    animation: parpadeo 15s infinite alternate;
+}
+
+.pelicula-principalBerserk5 .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+video {
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+
+@keyframes slidebg {
+	to {
+		background-position:20vw;
+	}
+}
+
+.follow{
+	margin-top: 40px;
+}
+
+.follow a{
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.ep ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ep ol li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #1a1a1a; 
+    border-radius: 5px;
+}
+
+.ep ol li a {
+    text-decoration: none;
+    color: #ff0000;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: "EB Garamond", serif; 
+    text-shadow: 0 0 10px #ff0000;
+    font-size: 0.9em; 
+}
+
+.pelicula-principal .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pelicula-principal .titulo {
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.pelicula-principal .descripcion {
+    margin-bottom: 20px;
+}
+
+.pelicula-principalMonster {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Monster.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalMonster .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalMonster .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #FF0000;
+}
+
+.pelicula-principal .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalBECK {
+    font-size: 16px;
+    font-family: 'BECK', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Fondobeck.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: center;
+}
+
+.pelicula-principalBECK .contenedor {
+    margin: 0 auto 6.25em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pelicula-principalBECK .titulo {
+    font-weight: 600;
+    font-size: 2em;
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}
+
+.pelicula-principalBECK .titulo img {
+	height: auto;
+    margin-bottom: 2px;
+    margin-left: -20px;
+}
+
+.pelicula-principalBECK .texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.pelicula-principalBECK .descripcion {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    text-align: justify;
+}
+
+@font-face {
+	font-family: 'BECK_FONT';
+	src: url('/Fonts/HouseBrokenClean.otf') format('opentype'),
+		 url('/Fonts/HouseBrokenClean.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+ol.titulo.beck-font {
+	font-family: 'BECK_FONT', sans-serif;
+}
+
+.lista-episodios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-episodios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+    padding: 15px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.lista-episodios li:hover {
+    transform: scale(1.15);
+	background-color: #ffffff;
+}
+
+.lista-episodios li:hover span {
+    color: #000000;
+	text-shadow: 0 0 5px #000000;
+}
+
+.lista-episodios li span {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 10px #ffffff;
+    font-size: 1.8em;
+}
+
+.titulo-episodio {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.titulo-episodio {
+    font-weight: 600;
+    font-size: 3em;
+    color: red;
+    margin-bottom: 0.4em;
+    font-family: "EB Garamond", serif;
+    text-shadow: 0 0 12px #FF0000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
+
+.input {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 45px;
+  padding-left: 2.5rem;
+  box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;
+  border: 0;
+  border-radius: 12px;
+  background-color: #16171d;
+  outline: none;
+  color: #bdbecb;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: text;
+  z-index: 0;
+}
+
+.input::placeholder {
+  color: #bdbecb;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 2.5px #2f303d, 0px 0px 25px -15px #000;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 2.5px #2f303d;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  fill: #bdbecb;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.boton {
+    background: rgba(0,0,0, 0.5);
+    border: none;
+    border-radius: 0.31em;
+    padding: 0.93em 1.87em;
+    color: #fff;
+    margin-right: 1.25em;
+    cursor: pointer;
+    transition: .3s ease all;
+    font-size: 1.12em;
+}
+
+.boton:hover {
+    background: #fff;
+    color: #000;
+}
+
+.boton .play-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 0.5em;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.boton:hover .play-icon {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(50%) contrast(100%);
+	transition: .3s ease all;
+}
+
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pelicula-principalDMCB {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMCB_Banner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalDMCB .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalDMCB .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(255, 255, 255);
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+}
+
+.pelicula-principalDMCB .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalANHQV {
+	font-size: 16px;
+	font-family:'Monster', serif;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/Anhqv.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalANHQV .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalANHQV .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(240, 236, 17);
+	margin-bottom: 0.4em;
+	font-family: "EB Garamond", serif;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+}
+
+.pelicula-principalANHQV .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalDMC {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/DMC_Banner.png) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalDMC .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalDMC .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: red;
+	margin-bottom: 0.4em;
+	text-shadow: 0 0 12px #FF0000;
+	text-align: left;
+}
+
+.pelicula-principalDMC .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+#cenizasCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@font-face {
+    font-family: 'Chinese Rocks';
+    src: url('../Fonts/chineserocksrg.otf') format('opentype');
+}
+
+.pelicula-principalRDR {
+    font-size: 16px;
+	font-family: 'Chinese Rocks', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/rdr2.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+
+
+}
+
+.pelicula-principalRDR .contenedor {
+    
+}
+
+.pelicula-principalRDR .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'Chinese Rocks', serif;
+    text-shadow: 0 0 12px #000000;
+    text-align: left;
+}
+
+.pelicula-principalRDR .descripcion {
+	font-family: 'Chinese Rocks', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+
+}
+
+@font-face {
+    font-family: 'GameofThrones';
+    src: url('../Fonts/GameofThrones.otf') format('opentype');
+}
+.pelicula-principalHF {
+    font-size: 16px;
+	font-family: 'GameofThrones', serif;
+    min-height: 40.62em;
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/hfbanner.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalHF .contenedor {
+    
+}
+
+.pelicula-principalHF .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pelicula-principalHF .descripcion {
+	font-family: 'GameofThrones', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em; 
+	color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    text-align: left;
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titulo-episodiohf {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+	color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'GameofThrones', serif;
+    background: linear-gradient(90deg, #b87333, #d4af37, #b87333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.error-message {
+    color: white;
+    background-color: red;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+.footer {
+    background-color: #141414;
+    color: #df2892;
+    padding: 20px 0;
+}
+
+.footer .contenedor {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+	font-weight: normal;
+	font-size: 40px;
+	background: -webkit-linear-gradient(#df2892, #ffffff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #df2892;
+	font-family: 'Bebas Neue', cursive;
+	
+}
+.footer-links {
+	align-items: right;
+	display: flex;
+	/* gap: 2rem; */
+	margin-left: 56%;
+		color: #df2892;
+
+}
+.footer-links a,
+.footer-social a {
+    text-decoration: none;
+	color: #df2892;
+
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+	transition: transform 0.6s ease;
+    transform: scale(1.1);
+}
+
+.footer-social a i {
+    font-size: 1.2rem;
+}
+
+.footer .text-center {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-social {
+    margin-left: auto; /*  Push the social icons to the right */
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end; /* Ensure alignment to the right */
+}
+
+
+@font-face {
+    font-family: 'minecrafter';
+    src: url('../Fonts/Minercraftory.ttf') format('opentype');
+}
+
+.pelicula-principalGames {
+    font-size: 16px;
+    font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: #ffffff;
+    background-color: #000000;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+    position: relative; /* Necesario para que el pseudo-elemento se posicione correctamente */
+}
+
+.pelicula-principalGames::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 1000% 2px, 3px 100%;
+    pointer-events: none;
+    height: 100%;
+}
+
+.pelicula-principalGames .contenedor {
+    /* Aquí puedes agregar más estilos si lo necesitas */
+}
+
+.pelicula-principalGames .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    text-align: left;
+}
+
+.pelicula-principalGames .descripcion {
+    font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+
+.pelicula-principalDoom {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ff9500;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/doomwallpaper.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalDoom .contenedor {
+    
+}
+
+.pelicula-principalDoom .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    /* text-shadow: 0 0 12px #000000; */
+    text-align: left;
+}
+
+.pelicula-principalDoom .descripcion {
+	font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.75em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+}
+
+.pelicula-principalDoom {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ff9500;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/doomwallpaper.webp) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+.pelicula-principalSF .contenedor {
+    
+}
+
+.pelicula-principalSF .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    /* text-shadow: 0 0 12px #000000; */
+    text-align: left;
+}
+
+.pelicula-principalSF .descripcion {
+    font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+
+    background-image: linear-gradient(to bottom, #fffd61, #ef5000);
+    background-size: 100% 1.5em; /* misma altura que el line-height */
+    background-repeat: repeat-y;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+
+
+
+.pelicula-principalSF {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ff9500;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/street_fighter_02.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+
+.pelicula-principalOOT .contenedor {
+    
+}
+
+.pelicula-principalOOT .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    /* text-shadow: 0 0 12px #000000; */
+    text-align: left;
+}
+
+.pelicula-principalOOT .descripcion {
+    font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    background-clip: text;
+}
+
+
+
+
+.pelicula-principalOOT {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ffffff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/zeldaoot.jpg) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+
+.pelicula-principalM64 .contenedor {
+    
+}
+
+.pelicula-principalM64 .titulo {
+    font-weight: 600;
+    font-size: 5.12em;
+    color: rgb(0, 0, 0);
+    margin-bottom: 0.4em;
+    font-family: 'minecrafter', serif;
+    /* text-shadow: 0 0 12px #000000; */
+    text-align: left;
+}
+
+.pelicula-principalM64 .descripcion {
+    font-family: 'minecrafter', serif;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    max-width: 50%;
+    margin-bottom: 1.25em;
+    background-clip: text;
+}
+
+
+
+
+.pelicula-principalM64 {
+    font-size: 16px;
+	font-family: 'minecrafter', serif;
+    min-height: 40.62em;
+    color: 	#ffffff;
+    background: linear-gradient(rgba(0, 0, 0, .50) 100%, rgba(0,0,0,.50) 100%), url(../img/m64wallpaper.png) center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+
+.pelicula-principalTLOU {
+	font-size: 16px;
+	min-height: 40.62em;
+	color: #fff;
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/tloubanner.jpg) center;
+	background-size: cover;
+	margin-bottom: 3.12em;
+	display: flex;
+	align-items: end;
+}
+
+.pelicula-principalTLOU .contenedor {
+	margin: 0 auto 6.25em;
+}
+
+.pelicula-principalTLOU .titulo {
+	font-weight: 600;
+	font-size: 8.12em;
+	color: rgb(240, 236, 17);
+	margin-bottom: 0.4em;
+	text-shadow: 0 0 12px #000000;
+	text-align: left;
+}
+
+.pelicula-principalTLOU .descripcion {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+
+.pelicula-principalTLOU .Temporada {
+	font-weight: normal;
+	font-size: 2.5em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}

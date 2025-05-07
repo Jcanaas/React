@@ -1,9 +1,12 @@
 
-export const FirstApp = () => {
+export const FirstApp = (props) => {
+    console.log(props)
+
     return (
-      <div class="row">
-        <h1>Esta es la FirstApp</h1>
+      <>
+        <h1>{props.title}</h1>
         <p>Esto es un subtitutlo xd</p>
-      </div>
+        
+      </>
     );
   }
