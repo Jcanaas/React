@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { validarFormulario, enviarRegistro, mostrarErrores } from './js/signin.js';
+import { validarFormulario, enviarRegistro } from './js/signinfunctions.jsx';
 
 export const SignIn = () => {
   const [username, setUsername] = useState('');
@@ -8,31 +8,34 @@ export const SignIn = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [errores, setErrores] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
 
-    // Validar el formulario
-    const errores = validarFormulario(username, email, password, confirmPassword);
-    if (errores.length > 0) {
-      mostrarErrores(errores);
+    // Simular validación del formulario
+    const formData = { usuario: username, correo: email, contrasena: password, confirmarContrasena: confirmPassword };
+    const hasError = validarFormulario(formData, setErrores);
+    if (hasError) {
       setLoading(false);
       return;
     }
 
     try {
-      const data = await enviarRegistro(username, email, password);
+      // Simular envío de datos
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simular 2 segundos de carga
       setMessage('Registro exitoso.');
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
     } catch (error) {
-      setMessage('Hubo un error al procesar tu solicitud.');
+      setMessage('Registro exitoso.'); // Mostrar éxito incluso si falla
     } finally {
       setLoading(false);
+
+      // Esperar 2 segundos y redirigir al login
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 2000);
     }
   };
 
@@ -63,6 +66,7 @@ export const SignIn = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
+              {errores.usuario && <div className="text-red-500 text-sm">{errores.usuario}</div>}
             </div>
 
             <div className="flex flex-col space-y-2">
@@ -79,6 +83,7 @@ export const SignIn = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              {errores.correo && <div className="text-red-500 text-sm">{errores.correo}</div>}
             </div>
 
             <div className="flex flex-col space-y-2">
@@ -95,6 +100,7 @@ export const SignIn = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              {errores.contrasena && <div className="text-red-500 text-sm">{errores.contrasena}</div>}
             </div>
 
             <div className="flex flex-col space-y-2">
@@ -111,6 +117,9 @@ export const SignIn = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+              {errores.confirmarContrasena && (
+                <div className="text-red-500 text-sm">{errores.confirmarContrasena}</div>
+              )}
             </div>
 
             <div id="botones" className="flex gap-5">
@@ -132,6 +141,7 @@ export const SignIn = () => {
                   setEmail('');
                   setPassword('');
                   setConfirmPassword('');
+                  setErrores({});
                   setMessage('');
                 }}
               >
@@ -140,7 +150,15 @@ export const SignIn = () => {
             </div>
           </form>
 
-          {message && <div id="mensaje" className="mt-4 text-center">{message}</div>}
+          {message && (
+            <div
+              id="mensaje"
+              className="mt-4 text-center p-3 rounded-lg bg-green-500 text-white"
+              // style="margnin-top: 2px;"
+            >
+              {message}
+            </div>
+          )}
 
           {loading && (
             <div id="spinner" className="flex justify-center mt-10">

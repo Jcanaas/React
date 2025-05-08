@@ -1,4 +1,4 @@
-//Componentes de la aplicación
+// Componentes de la aplicación
 import React, { useState, useEffect } from 'react';
 import { Header } from './Header.jsx';
 import { MainContent } from './MainContent';
@@ -6,8 +6,9 @@ import { Footer } from './Footer';
 import { User } from './user.jsx';
 import { Login } from './Login.jsx';
 import { SignIn } from './signin.jsx';
+import FormularioSatisfaccion from './form.jsx';
 
-//Css
+// CSS
 import './user.css';
 import './index.css';
 import './estilos.css';
@@ -17,44 +18,62 @@ import './popup.css';
 import './spiner.css';
 
 export const App = () => {
-  const [currentComponent, setCurrentComponent] = useState('main'); // Estado para controlar el componente actual
+  const [currentComponent, setCurrentComponent] = useState('main');
+  const [profileImage, setProfileImage] = useState(
+    localStorage.getItem('profileImage') || '../img/user_pink.png'
+  );
 
   const handleComponentChange = (component) => {
-    setCurrentComponent(component); // Cambia el estado al componente deseado
+    setCurrentComponent(component); 
   };
 
-  // Manejar dinámicamente el CSS de login
   useEffect(() => {
     const loginStylesId = 'login-css';
     const existingLoginStyles = document.getElementById(loginStylesId);
 
-    if (currentComponent === 'login' || currentComponent === 'signin') {
+    if (currentComponent === 'login' || currentComponent === 'signin' || currentComponent === 'form') {
       if (!existingLoginStyles) {
-        // Agregar login.css dinámicamente si no existe
         const loginStyles = document.createElement('link');
         loginStyles.rel = 'stylesheet';
-        loginStyles.href = '/src/login.css'; // Ajusta la ruta según la ubicación real
+        loginStyles.href = '/src/login.css'; 
         loginStyles.id = loginStylesId;
         document.head.appendChild(loginStyles);
       }
     } else {
-      // Eliminar login.css si no estamos en Login o SignIn
       if (existingLoginStyles) {
         existingLoginStyles.remove();
       }
     }
-  }, [currentComponent]); // Ejecutar cada vez que cambie currentComponent
+  }, [currentComponent]);
 
-  console.log('Componente actual:', currentComponent); // Para depuración
+  useEffect(() => {
+    const storedImage = localStorage.getItem('profileImage');
+    if (storedImage) {
+      setProfileImage(storedImage);
+    }
+  }, []);
+
+  console.log('Componente actual:', currentComponent);
 
   return (
     <>
-      <Header onComponentChange={handleComponentChange} /> {/* Pasa la función como prop */}
+      <Header
+        onComponentChange={handleComponentChange}
+        profileImage={profileImage} // Pasar la imagen de perfil al Header
+      />
       {currentComponent === 'main' && <MainContent />}
-      {currentComponent === 'user' && <User />}
+      {currentComponent === 'user' && (
+        <User
+          setProfileImage={(newImage) => {
+            localStorage.setItem('profileImage', newImage); // Actualizar en localStorage
+            setProfileImage(newImage); // Actualizar el estado global
+          }}
+        />
+      )}
       {currentComponent === 'login' && <Login />}
       {currentComponent === 'signin' && <SignIn />}
-      {currentComponent !== 'login' && currentComponent !== 'signin' && <Footer />} {/* Renderiza el Footer solo si no es login */}
+      {currentComponent === 'form' && <FormularioSatisfaccion />}
+      {currentComponent !== 'login' && currentComponent !== 'signin' && <Footer />}
     </>
   );
 };

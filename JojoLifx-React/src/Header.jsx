@@ -1,29 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-export const Header = ({ onComponentChange }) => {
-  const [profileImage, setProfileImage] = useState(
-    'https://raw.githubusercontent.com/Jcanaas/JoJo-Flix/refs/heads/main/img/user_pink.png'
-  );
-
-  useEffect(() => {
-    const savedImage = localStorage.getItem('profileImage');
-    if (savedImage) {
-      setProfileImage(savedImage);
-    }
-  }, []);
-
-  const handleLogoClick = () => {
-    onComponentChange('main'); // Cambia a MainContent
-  };
-
-  const handleLogInClick = () => {
-    onComponentChange('login'); // Cambia a Login
-  };
-
-  const handleSignInClick = () => {
-    onComponentChange('signin'); // Cambia a SignIn
-  };
-
+export const Header = ({ onComponentChange, profileImage }) => {
   const handleSearch = (e) => {
     if (e.key !== 'Enter') return;
 
@@ -31,12 +8,11 @@ export const Header = ({ onComponentChange }) => {
     if (!query) return;
 
     const images = document.querySelectorAll('img[alt]');
-
     for (const img of images) {
       const altText = img.getAttribute('alt').toLowerCase();
       if (altText.includes(query)) {
         img.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        break;
+        return;
       }
     }
   };
@@ -44,19 +20,13 @@ export const Header = ({ onComponentChange }) => {
   return (
     <header>
       <div className="contenedor">
-        <h2 className="logotipo" onClick={handleLogoClick}>
+        <h2 className="logotipo" onClick={() => onComponentChange('main')}>
           JoJo-flix
         </h2>
         <nav>
-          <a href="#" onClick={() => onComponentChange('form')}>
-            Formulario de satisfacción
-          </a>
-          <a href="#" onClick={handleSignInClick}>
-            SIGN IN
-          </a>
-          <a href="#" onClick={handleLogInClick}>
-            LOG IN
-          </a>
+          <a onClick={() => onComponentChange('form')}>Formulario de satisfacción</a>
+          <a onClick={() => onComponentChange('signin')}>SIGN IN</a>
+          <a onClick={() => onComponentChange('login')}>LOG IN</a>
           <div className="group">
             <input
               type="text"
@@ -77,12 +47,12 @@ export const Header = ({ onComponentChange }) => {
             className="user-button"
             onClick={(e) => {
               e.preventDefault();
-              onComponentChange('user'); // Cambia a User
+              onComponentChange('user');
             }}
           >
             <img
               id="userProfileImage"
-              src={profileImage}
+              src={profileImage} // Usar la imagen de perfil pasada como prop
               alt="User Profile"
               className="user-icon"
             />

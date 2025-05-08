@@ -732,9 +732,10 @@ canvas#spores {
 .bg-green-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  margin-top: 5px;
 }
 
-.bg-red-600 {
+.bg-red-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }

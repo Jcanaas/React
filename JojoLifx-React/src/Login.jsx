@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import { enviarLogin, mostrarAlertaExito, mostrarAlertaError } from './js/login.js';
+import { enviarLogin } from './js/login.js';
 
 export const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [mensaje, setMensaje] = useState(''); // Estado para el mensaje
+  const [mensajeClase, setMensajeClase] = useState(''); // Clase para el estilo del mensaje
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Evita el comportamiento predeterminado del formulario
     setLoading(true); // Muestra el spinner mientras se procesa el inicio de sesión
+    setMensaje(''); // Limpia el mensaje previo
 
     try {
       const data = await enviarLogin(usuario, password); // Llama a la función de login
       if (data.success) {
-        mostrarAlertaExito(data.message);
+        setMensaje('Inicio de sesión exitoso.');
+        setMensajeClase('bg-green-500 text-white p-3 rounded'); // Mensaje de éxito
         localStorage.setItem('usuario', usuario);
         localStorage.setItem('password', password);
 
@@ -22,10 +26,12 @@ export const Login = () => {
           window.location.href = '/user';
         }, 2000);
       } else {
-        mostrarAlertaError(data.message);
+        setMensaje(data.message || 'Credenciales incorrectas.');
+        setMensajeClase('bg-red-500 text-white p-3 rounded'); // Mensaje de error
       }
     } catch (error) {
-      mostrarAlertaError('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
+      setMensaje('Hubo un error al iniciar sesión. Por favor, inténtalo nuevamente.');
+      setMensajeClase('bg-red-500 text-white p-3 rounded'); // Mensaje de error
     } finally {
       setLoading(false); // Oculta el spinner
     }
@@ -93,11 +99,17 @@ export const Login = () => {
                 onClick={() => {
                   setUsuario('');
                   setPassword('');
+                  setMensaje(''); // Limpia el mensaje al resetear
                 }}
               >
                 Reset
               </button>
             </div>
+
+            {/* Mensaje de éxito o error */}
+            {mensaje && (
+              <p className={`mt-3 text-center ${mensajeClase}`}>{mensaje}</p>
+            )}
           </form>
         </div>
       </div>
