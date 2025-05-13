@@ -1,80 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 const Form = () => {
-    const [formData, setFormData] = useState({
-        nombre: '',
-        comentarios: '',
-        rating: '3', // Valor por defecto
-    });
-    const [mensaje, setMensaje] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [selectedRating, setSelectedRating] = useState(0);
+    const [hoveredRating, setHoveredRating] = useState(0); // Estado para manejar el hover
 
     useEffect(() => {
-        // Obtener el nombre del usuario desde localStorage
-        const usuarioLocal = localStorage.getItem('usuario');
-        if (usuarioLocal) {
-            setFormData((prevData) => ({ ...prevData, nombre: usuarioLocal }));
-        }
+        // Función para manejar la respuesta JSONP
+        window.loadData = (data) => {
+            console.log("Respuesta JSONP: ", data);
+
+            const mensaje = document.getElementById("mensaje");
+
+            if (data.mensaje) {
+                // Respuesta con éxito
+                mensaje.textContent = "¡Formulario enviado con éxito!";
+                mensaje.classList.remove("text-red-600");
+                mensaje.classList.add("text-green-600");
+            } else {
+                // Error
+                mensaje.textContent = "Hubo un error.";
+                mensaje.classList.add("text-red-600");
+            }
+
+            // Redirigir a la página de agradecimiento después de 2 segundos
+            setTimeout(() => {
+                window.location.href = "thank_you.html";
+            }, 2000);
+        };
+
+        // Manejar el envío del formulario
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", (event) => {
+            event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
+
+            const nombre = document.getElementById("nomCognoms").value.trim();
+            const comentarios = document.getElementById("observacions").value.trim();
+            const rating = document.querySelector('input[name="rate"]:checked')?.value;
+
+            console.log("Datos antes de enviar:", { nombre, comentarios, rating });
+
+            // Verificar si los campos obligatorios están completos
+            if (!nombre || !rating) {
+                const mensaje = document.getElementById("mensaje");
+                mensaje.textContent = "Por favor, completa todos los campos obligatorios.";
+                mensaje.classList.add("text-red-600");
+                return;
+            }
+
+            const scriptURL =
+                "https://script.google.com/macros/s/AKfycbzsORwapCu088hn1FW4aFLSxJas6lJp0VPK6nwJbWMhsS2T_AoGdiAt9jKXqUGaa6jfaQ/exec"; // Reemplaza con tu ID de despliegue
+
+            // Construir la URL de la solicitud JSONP
+            const url = `${scriptURL}?callback=loadData&nombre=${encodeURIComponent(
+                nombre
+            )}&comentarios=${encodeURIComponent(
+                comentarios
+            )}&rating=${encodeURIComponent(rating)}`;
+
+            // Crear el script para la solicitud JSONP
+            const script = document.createElement("script");
+            script.src = url;
+            document.body.appendChild(script);
+        });
     }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const handleRatingChange = (rate) => {
+        setSelectedRating(rate);
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        const { nombre, comentarios, rating } = formData;
-
-        // Verifica si los campos obligatorios están completos
-        if (!nombre || !rating) {
-            setMensaje('Por favor, completa todos los campos obligatorios.');
-            return;
-        }
-
-        setIsSubmitting(true);
-
-        const scriptURL =
-            'https://script.google.com/macros/s/AKfycbwvIGoqILZbwGRAg8gDopu02BXnT2xFj1ujWU4imDIGF3n5G7SxySgMk7aDkS5iJmmLMw/exec';
-
-        try {
-            const response = await fetch(scriptURL, {
-                method: 'POST',
-                body: JSON.stringify({ nombre, comentarios, rating }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            if (!response.ok) {
-                throw new Error('Error en la solicitud');
-            }
-
-            const result = await response.json();
-            if (result.mensaje) {
-                setMensaje('¡Formulario enviado con éxito!');
-                setTimeout(() => {
-                    window.location.href = 'thank_you.html';
-                }, 2000);
-            } else {
-                setMensaje('Hubo un error.');
-            }
-        } catch (error) {
-            console.error('Error al enviar el formulario:', error);
-            setMensaje('Hubo un error al enviar el formulario.');
-        } finally {
-            setIsSubmitting(false);
-        }
+    const handleRatingHover = (rate) => {
+        setHoveredRating(rate);
     };
 
-    const handleReset = () => {
-        setFormData({
-            nombre: '',
-            comentarios: '',
-            rating: '3',
-        });
-        setMensaje('');
+    const handleRatingHoverOut = () => {
+        setHoveredRating(0);
     };
 
     return (
@@ -89,7 +89,7 @@ const Form = () => {
             <div className="login-container">
                 <h1 className="text-4xl text-center text-blue-700">Formulario de Satisfacción</h1>
                 <div className="form-container bg-white rounded-lg shadow-xl p-10 mt-5">
-                    <form id="formulario" className="space-y-5" onSubmit={handleSubmit}>
+                    <form id="formulario" className="space-y-5">
                         <div className="form-group">
                             <label htmlFor="nomCognoms">Nombre y Apellidos:</label>
                             <input
@@ -97,8 +97,6 @@ const Form = () => {
                                 type="text"
                                 name="nombre"
                                 placeholder="Nombre y Apellidos"
-                                value={formData.nombre}
-                                onChange={handleInputChange}
                                 required
                             />
                         </div>
@@ -111,8 +109,6 @@ const Form = () => {
                                 rows="4"
                                 maxLength="200"
                                 placeholder="Escribe tus comentarios aquí..."
-                                value={formData.comentarios}
-                                onChange={handleInputChange}
                             ></textarea>
                         </div>
 
@@ -124,39 +120,37 @@ const Form = () => {
                                         <input
                                             type="radio"
                                             id={`rate${rate}`}
-                                            name="rating"
+                                            name="rate"
                                             value={rate}
-                                            checked={formData.rating === `${rate}`}
-                                            onChange={handleInputChange}
+                                            checked={selectedRating === rate}
+                                            onChange={() => handleRatingChange(rate)}
                                         />
-                                        <label htmlFor={`rate${rate}`}>{rate}</label>
+                                        <label
+                                            htmlFor={`rate${rate}`}
+                                            className={
+                                                rate <= (hoveredRating || selectedRating)
+                                                    ? "selected"
+                                                    : ""
+                                            }
+                                            onMouseEnter={() => handleRatingHover(rate)}
+                                            onMouseLeave={handleRatingHoverOut}
+                                            onClick={() => handleRatingChange(rate)}
+                                        >
+                                            ★
+                                        </label>
                                     </React.Fragment>
                                 ))}
                             </div>
                         </div>
 
                         <div id="botones" className="form-buttons">
-                            <button type="submit" disabled={isSubmitting}>
-                                {isSubmitting ? 'Enviando...' : 'Enviar'}
-                            </button>
-                            <button type="button" onClick={handleReset}>
+                            <button type="submit">Enviar</button>
+                            <button type="reset" onClick={() => setSelectedRating(0)}>
                                 Reset
                             </button>
                         </div>
                     </form>
-                    {mensaje && <div id="mensaje" className="mt-5 text-center">{mensaje}</div>}
-                    <div className="mt-5 text-center">
-                        O si lo prefieres puedes dejar tu comentario en mi{' '}
-                        <a
-                            href="https://github.com/Jcanaas/JoJo-Flix/issues"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue"
-                        >
-                            GitHub
-                        </a>
-                        .
-                    </div>
+                    <div id="mensaje" className="mt-5 text-center"></div>
                 </div>
             </div>
         </main>

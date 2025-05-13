@@ -8,7 +8,7 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+/* Estilos generales del header */
 header {
     background-color: #ffcb05;
     color: #2a75bb;
@@ -17,18 +17,67 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header h2 {
-    font-size: 28px;
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header .logotipo {
+    font-size: 24px;
     font-weight: bold;
-    margin: 0;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
-header h2:hover {
+header .menu-toggle {
+    display: none; /* Oculto por defecto */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #2a75bb;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+header nav button {
+    text-decoration: none;
+    color: #2a75bb;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+header nav button:hover {
+    color: #1a4a8a;
     transform: scale(1.1);
+}
+
+header .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #2a75bb;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+header .user-icon:hover {
+    transform: scale(1.1);
+    border-color: #1a4a8a;
 }
 
 main {
@@ -453,11 +502,32 @@ section .air.air4 {
 
 /* Hero Section */
 .hero {
+    position: relative;
+    height: 40vh; /* Ocupa toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #ffcb05, #f4f4f9);
-    color: #2a75bb;
+    color: #2a75bb; /* Color del texto */
+    background: linear-gradient(135deg, #ffcb05, #f4f4f9); /* Fondo actual como respaldo */
     border-bottom: 5px solid #2a75bb;
+    overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+.hero-content {
+    z-index: 1; /* Asegura que el contenido esté por encima del video */
+    padding: 20px;
 }
 
 .hero h1 {
@@ -583,38 +653,29 @@ section ul li strong {
 
 .rating-buttons {
     display: flex;
-    gap: 10px;
+    gap: 10px; /* Espaciado entre las estrellas */
+    justify-content: center;
+    align-items: center;
 }
 
-.rating-buttons input[type="radio"] {
+.rating-buttons input {
     display: none; /* Oculta los botones de radio */
 }
 
 .rating-buttons label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #ccc;
-    border-radius: 50%;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+    font-size: 2rem; /* Tamaño de las estrellas */
+    color: #ccc; /* Color de las estrellas no seleccionadas */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.rating-buttons input[type="radio"]:checked + label {
-    background-color: #ffcb05; /* Color de fondo para la selección */
-    border-color: #ffcb05;
-    color: #fff;
+.rating-buttons label.selected {
+    color: #ffcb05; /* Color de las estrellas seleccionadas */
 }
 
 .rating-buttons label:hover {
-    background-color: #ffcb05; /* Color de fondo al pasar el cursor */
-    color: #fff;
-    border-color: #ffcb05;
+    transform: scale(1.2); /* Efecto de zoom al pasar el cursor */
+    color: #ffcb05; /* Color de las estrellas al pasar el cursor */
 }
 
 /* Estilo para el cuadro de texto */
@@ -683,6 +744,31 @@ textarea::placeholder {
 
     section h2 {
         font-size: 24px;
+    }
+
+    header .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+    }
+
+    header nav {
+        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffcb05;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header nav.open {
+        display: flex; /* Muestra el menú cuando está abierto */
+    }
+
+    header .user-icon {
+        margin-top: 10px; /* Espaciado adicional para el ícono de usuario */
     }
 }
 

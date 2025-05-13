@@ -24,14 +24,31 @@ const MainContent = ({ children }) => {
                 <>
                     {/* Hero Section */}
                     <section className="hero">
-                        <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
-                        <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
-                        <button
-                            className="download-button"
-                            onClick={() => (window.location.href = 'descargas.html')}
+                        <video
+                            className="hero-video"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            onError={(e) => {
+                                e.target.style.display = "none"; // Oculta el video si no se carga
+                            }}
                         >
-                            Ver Tráiler Demo
-                        </button>
+                            <source src="videos/hero-background.mp4" type="video/mp4" />
+                            <source src="videos/hero-background.webm" type="video/webm" />
+                            {/* Mensaje para navegadores que no soportan video */}
+                            Tu navegador no soporta videos.
+                        </video>
+                        <div className="hero-content">
+                            <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
+                            <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
+                            <button
+                                className="download-button"
+                                onClick={() => (window.location.href = "descargas.html")}
+                            >
+                                Ver Tráiler Demo
+                            </button>
+                        </div>
                     </section>
 
                     {/* Galería de Mapas */}

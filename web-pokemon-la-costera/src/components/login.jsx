@@ -45,7 +45,7 @@ const Login = () => {
                 setAlertMessage({ type: 'success', text: result.message });
 
                 setTimeout(() => {
-                    window.location.href = 'user.html';
+                    window.location.reload(); // Recarga todos los elementos de la página actual
                 }, 2000);
             } else {
                 setAlertMessage({ type: 'error', text: result.message });
