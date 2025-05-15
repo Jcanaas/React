@@ -28,6 +28,7 @@ const UserProfile = () => {
         setProfileImage(newSrc);
         localStorage.setItem('profileImage', newSrc);
         setIsImageSelectorVisible(false); // Cierra el menú después de seleccionar una imagen
+        window.location.reload();
     };
 
     const handleCustomImageSave = () => {
@@ -37,6 +38,8 @@ const UserProfile = () => {
             alert('Imagen personalizada guardada correctamente.');
             setCustomImageUrl('');
             setIsImageSelectorVisible(false); // Cierra el menú después de guardar la imagen personalizada
+            
+
         } else {
             alert('Por favor, introduce una URL válida.');
         }

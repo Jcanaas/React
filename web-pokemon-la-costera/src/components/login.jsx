@@ -32,6 +32,7 @@ const Login = () => {
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8',
                 },
+                
             });
 
             if (!response.ok) {
@@ -39,13 +40,16 @@ const Login = () => {
             }
 
             const result = await response.json();
+            console.log('Respuesta completa del servidor:', result); // Agregado para mostrar la respuesta del servidor
+
             if (result.success) {
                 localStorage.setItem('usuario', loginData.usuario);
                 localStorage.setItem('password', loginData.password);
+                localStorage.setItem('profileImage', result.fotodeperfil);
                 setAlertMessage({ type: 'success', text: result.message });
 
                 setTimeout(() => {
-                    window.location.reload(); // Recarga todos los elementos de la página actual
+                    window.location.reload();
                 }, 2000);
             } else {
                 setAlertMessage({ type: 'error', text: result.message });

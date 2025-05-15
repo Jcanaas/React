@@ -19,7 +19,7 @@ const MainContent = ({ children }) => {
 
     return (
         <main>
-            {/* Si hay contenido dinámico, se renderiza aquí */}
+
             {children || (
                 <>
                     {/* Hero Section */}
@@ -34,7 +34,7 @@ const MainContent = ({ children }) => {
                                 e.target.style.display = "none"; // Oculta el video si no se carga
                             }}
                         >
-                            <source src="videos/hero-background.mp4" type="video/mp4" />
+                            {/* <source src="videos/hero-background.mp4" type="video/mp4" /> */}
                             <source src="videos/hero-background.webm" type="video/webm" />
                             {/* Mensaje para navegadores que no soportan video */}
                             Tu navegador no soporta videos.
