@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Header = ({ onNavigate }) => {
     const [profileImage, setProfileImage] = useState('img/user_default.png'); // Imagen predeterminada
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para el menú desplegable
+    const menuRef = useRef(null); // Referencia al menú
 
     useEffect(() => {
         // Cargar la imagen de perfil desde localStorage
@@ -10,6 +11,18 @@ const Header = ({ onNavigate }) => {
         if (savedImage) {
             setProfileImage(savedImage);
         }
+
+        // Detectar clics fuera del menú
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
     }, []);
 
     const buttonStyle = {
@@ -34,7 +47,10 @@ const Header = ({ onNavigate }) => {
                 >
                     ☰
                 </button>
-                <nav className={`menu ${isMenuOpen ? 'open' : ''}`}>
+                <nav
+                    className={`menu ${isMenuOpen ? 'open' : ''}`}
+                    ref={menuRef}
+                >
                     <button style={buttonStyle} onClick={() => onNavigate('doc')}>Documentación</button>
                     <button style={buttonStyle} onClick={() => onNavigate('form')}>Formulario de Opinión</button>
                     <button style={buttonStyle} onClick={() => onNavigate('signin')}>Registrarse</button>

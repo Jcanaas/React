@@ -1,4 +1,8 @@
-/* Estilo general */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
@@ -36,7 +40,7 @@ header .logotipo {
 }
 
 header .menu-toggle {
-    display: none; /* Oculto por defecto */
+    display: none; 
     font-size: 24px;
     background: none;
     border: none;
@@ -44,11 +48,30 @@ header .menu-toggle {
     color: #2a75bb;
 }
 
-header nav {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+@media (max-width: 768px) {
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        flex-direction: column;
+        background-color: #ffcb05;
+        gap: 10px;
+        padding: 10px 0;
+        align-items: left;
+        display: none; 
+        align-items: center;
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+
+    header nav.hidden {
+        display: none;
+    }
 }
+
 
 header nav button {
     text-decoration: none;
@@ -110,15 +133,15 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     background-color: #ffcb05;
-    padding: 0 20px; /* Reduce el padding superior/inferior */
-    margin: 0; /* Elimina márgenes */
+    padding: 0 20px; 
+    margin: 0; 
 }
 
 .logotipo {
     font-size: 24px;
     color: #2a75bb;
     cursor: pointer;
-    margin: 0; /* Elimina márgenes */
+    margin: 0; 
 }
 
 nav {
@@ -292,7 +315,7 @@ section.waves {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Asegúrate de que ocupe toda la altura */
+    height: 100%; 
     z-index: -1;
     overflow: hidden;
 }
@@ -301,8 +324,8 @@ section .air {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200%; /* Aumenta el ancho para que las olas sean más grandes */
-    height: 150px; /* Ajusta la altura de las olas */
+    width: 200%; 
+    height: 150px; 
     background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
     background-size: 1000px 150px; /* Ajusta el tamaño del fondo */
     filter: invert(38%) sepia(98%) saturate(1882%) hue-rotate(181deg) brightness(96%) contrast(94%);
@@ -321,7 +344,7 @@ section .air.air2 {
     z-index: 999;
     opacity: 0.5;
     animation-delay: -5s;
-    bottom: 20px; /* Ajusta la posición */
+    bottom: 20px; 
 }
 
 section .air.air3 {
@@ -329,7 +352,7 @@ section .air.air3 {
     z-index: 998;
     opacity: 0.2;
     animation-delay: -2s;
-    bottom: 40px; /* Ajusta la posición */
+    bottom: 40px; 
 }
 
 section .air.air4 {
@@ -503,6 +526,16 @@ section .air.air4 {
 /* Hero Section */
 .hero {
     position: relative;
+    background-color: #ffcb05; /* Fondo amarillo predeterminado */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.hero.video-active {
+    background-color: transparent; /* Fondo transparente cuando el video está activo */
+}
+
+.hero {
+    position: relative;
     height: 40vh; /* Ocupa toda la altura de la ventana */
     display: flex;
     flex-direction: column;
@@ -513,6 +546,12 @@ section .air.air4 {
     background: linear-gradient(135deg, #ffcb05, #f4f4f9); /* Fondo actual como respaldo */
     border-bottom: 5px solid #2a75bb;
     overflow: hidden; /* Asegura que el video no se desborde */
+    background-color: #ffcb05; /* Color de fondo predeterminado */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.hero.transparent-bg {
+    background-color: transparent; /* Fondo transparente si el video no se carga */
 }
 
 .hero-video {

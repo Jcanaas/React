@@ -1,24 +1,18 @@
 import random
 
 def inicialitzaTauler(mida):
-    """
-    Crea una matriu de mida x mida inicialitzada amb '?'
-    """
+   
     return [['?' for _ in range(mida)] for _ in range(mida)]
 
 def mostraTauler(tauler):
-    """
-    Mostra el tauler per pantalla amb les files i columnes numerades.
-    """
+   
     mida = len(tauler)
     print("  " + " ".join(map(str, range(mida))))  # Números de columna
     for i, fila in enumerate(tauler):
         print(f"{i} " + " ".join(fila))  # Números de fila i contingut
 
 def posaPeces(mida):
-    """
-    Crea una matriu amb les peces ordenades (dues de cada lletra).
-    """
+    
     lletres = [chr(65 + i // 2) for i in range(mida * mida)]  # A, A, B, B, ...
     matriu = []
     for i in range(mida):
@@ -27,9 +21,7 @@ def posaPeces(mida):
     return matriu
 
 def remenaPeces(matriu):
-    """
-    Barreja les peces de la matriu de manera aleatòria.
-    """
+    
     mida = len(matriu)
     peces = [matriu[i][j] for i in range(mida) for j in range(mida)]
     random.shuffle(peces)
@@ -38,9 +30,7 @@ def remenaPeces(matriu):
             matriu[i][j] = peces.pop()
 
 def torn(tauler, secret, jugador):
-    """
-    Gestiona un torn de joc: demana dues posicions, les destapa i comprova si coincideixen.
-    """
+    
     print(f"\nTorn del jugador {jugador}!")
     mida = len(tauler)
 
@@ -90,14 +80,26 @@ def torn(tauler, secret, jugador):
         tauler[fila2][columna2] = '?'
         return False
 
+def obtenirMidaTauler():
+    
+    while True:
+        try:
+            mida = int(input("Introdueix la mida del tauler (nombre parell entre 2 i 10): "))
+            if mida >= 2 and mida <= 10 and mida % 2 == 0:
+                return mida
+            else:
+                print("La mida ha de ser un nombre parell entre 2 i 10. Torna-ho a intentar.")
+        except ValueError:
+            print("Entrada no vàlida. Torna-ho a intentar.")
+
 # Programa principal
 if __name__ == "__main__":
-    mida = 4  # Mida del tauler
+    print("Benvingut al joc del Memory!")
+    mida = obtenirMidaTauler()  # Obtenir la mida del tauler del jugador
     tauler = inicialitzaTauler(mida)
     secret = posaPeces(mida)
     remenaPeces(secret)
 
-    print("Benvingut al joc del Memory!")
     mostraTauler(tauler)
 
     # Joc principal
@@ -117,13 +119,13 @@ if __name__ == "__main__":
             else:
                 jugador_actual = 1  # Cambiar al jugador 1
 
-        print(f"Punts jugador 1: {punts_jugador1} | Punts jugador 2: {punts_jugador2}")
+        print(f"Punts jugador 1: ", punts_jugador1, "Punts jugador 2: ", punts_jugador2)
 
     # Mostrar el guanyador
     print("\nFelicitats! El joc ha acabat!")
     if punts_jugador1 > punts_jugador2:
-        print(f"El guanyador és el jugador 1 amb {punts_jugador1} punts!")
+        print("El guanyador és el jugador 1 amb", punts_jugador1, "punts!")
     elif punts_jugador2 > punts_jugador1:
-        print(f"El guanyador és el jugador 2 amb {punts_jugador2} punts!")
+        print("El guanyador és el jugador 2 amb", punts_jugador2, "punts!")
     else:
         print("És un empat!")

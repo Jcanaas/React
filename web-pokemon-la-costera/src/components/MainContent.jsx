@@ -7,6 +7,7 @@ const MainContent = ({ children }) => {
         description: '',
         image: '',
     });
+    const [isVideoVisible, setIsVideoVisible] = useState(false); // Controla si el video se muestra
 
     const showModal = (title, description, image) => {
         setModalContent({ title, description, image });
@@ -19,36 +20,34 @@ const MainContent = ({ children }) => {
 
     return (
         <main>
-
             {children || (
                 <>
                     {/* Hero Section */}
-                    <section className="hero">
-                        <video
-                            className="hero-video"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            onError={(e) => {
-                                e.target.style.display = "none"; // Oculta el video si no se carga
-                            }}
-                        >
-                            {/* <source src="videos/hero-background.mp4" type="video/mp4" /> */}
-                            <source src="videos/hero-background.webm" type="video/webm" />
-                            {/* Mensaje para navegadores que no soportan video */}
-                            Tu navegador no soporta videos.
-                        </video>
-                        <div className="hero-content">
-                            <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
-                            <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
-                            <button
-                                className="download-button"
-                                onClick={() => (window.location.href = "descargas.html")}
+                    <section className={`hero ${isVideoVisible ? 'video-active' : ''}`}>
+                        {isVideoVisible ? (
+                            <video
+                                className="hero-video"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                controls
                             >
-                                Ver Tráiler Demo
-                            </button>
-                        </div>
+                                <source src="/img/Antoniolobato.mp4" type="video/mp4" />
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        ) : (
+                            <div className="hero-content">
+                                <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
+                                <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
+                                <button
+                                    className="download-button"
+                                    onClick={() => setIsVideoVisible(true)} // Muestra el video al hacer clic
+                                >
+                                    Ver Tráiler Demo
+                                </button>
+                            </div>
+                        )}
                     </section>
 
                     {/* Galería de Mapas */}
@@ -213,7 +212,6 @@ const MainContent = ({ children }) => {
                                 <p>Profesor Emilio</p>
                             </div>
                         </div>
-                        <h2 style={{ fontSize: '20px' }}>Personajes invitados</h2>
                         <div className="gallery grid">
                             <div
                                 className="gallery-item"
