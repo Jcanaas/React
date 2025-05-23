@@ -6,11 +6,21 @@ const MainContent = ({ children }) => {
         title: '',
         description: '',
         image: '',
+        video: ''
     });
-    const [isVideoVisible, setIsVideoVisible] = useState(false); // Controla si el video se muestra
 
     const showModal = (title, description, image) => {
-        setModalContent({ title, description, image });
+        setModalContent({ title, description, image, video: '' });
+        setIsModalOpen(true);
+    };
+
+    const showVideoModal = () => {
+        setModalContent({
+            title: '',
+            description: '',
+            image: '',
+            video: '/img/Antoniolobato.mp4'
+        });
         setIsModalOpen(true);
     };
 
@@ -23,36 +33,22 @@ const MainContent = ({ children }) => {
             {children || (
                 <>
                     {/* Hero Section */}
-                    <section className={`hero ${isVideoVisible ? 'video-active' : ''}`}>
-                        {isVideoVisible ? (
-                            <video
-                                className="hero-video"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                controls
+                    <section className="hero">
+                        <div className="hero-content">
+                            <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
+                            <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
+                            <button
+                                className="download-button"
+                                onClick={showVideoModal}
                             >
-                                <source src="/img/Antoniolobato.mp4" type="video/mp4" />
-                                Tu navegador no soporta el elemento de video.
-                            </video>
-                        ) : (
-                            <div className="hero-content">
-                                <h1>¡Una nueva región, una antigua amenaza y artículos veraniegos muy caros!</h1>
-                                <p>Explora La Costera y enfréntate al despertar de Sierpentez.</p>
-                                <button
-                                    className="download-button"
-                                    onClick={() => setIsVideoVisible(true)} // Muestra el video al hacer clic
-                                >
-                                    Ver Tráiler Demo
-                                </button>
-                            </div>
-                        )}
+                                Ver Tráiler Demo
+                            </button>
+                        </div>
                     </section>
 
                     {/* Galería de Mapas */}
                     <section className="galeria">
-                        <p>Explora La Costera</p>
+                        <h2>Explora La Costera</h2>
                         <div className="gallery grid">
                             <div
                                 className="gallery-item"
@@ -60,12 +56,12 @@ const MainContent = ({ children }) => {
                                     showModal(
                                         'Bahía de Marezuela',
                                         'Ciudad portuaria con gimnasio Agua y pescados frescos.',
-                                        'img/mapa_bahia.jpg'
+                                        'img/mapa_bahia.png'
                                     )
                                 }
                             >
-                                <img src="img/mapa_bahia.jpg" alt="Bahía de Marezuela" />
-                                <h2>Bahía de Marezuela</h2>
+                                <img src="img/mapa_bahia.png" alt="Bahía de Marezuela" />
+                                <p>Bahía de Marezuela</p>
                             </div>
                             <div
                                 className="gallery-item"
@@ -73,11 +69,11 @@ const MainContent = ({ children }) => {
                                     showModal(
                                         'Islas del Fuego',
                                         'Archipiélago volcánico con Pokémon únicos de Fuego.',
-                                        'img/mapa_islas.jpg'
+                                        'img/mapa_islas.png'
                                     )
                                 }
                             >
-                                <img src="img/mapa_islas.jpg" alt="Islas del Fuego" />
+                                <img src="img/mapa_islas.png" alt="Islas del Fuego" />
                                 <p>Islas del Fuego</p>
                             </div>
                             <div
@@ -86,11 +82,11 @@ const MainContent = ({ children }) => {
                                     showModal(
                                         'Dunas del Levante',
                                         'Desierto costero con Pokémon tipo Roca y Viento.',
-                                        'img/mapa_dunas.jpg'
+                                        'img/mapa_dunas.png'
                                     )
                                 }
                             >
-                                <img src="img/mapa_dunas.jpg" alt="Dunas del Levante" />
+                                <img src="img/mapa_dunas.png" alt="Dunas del Levante" />
                                 <p>Dunas del Levante</p>
                             </div>
                             <div
@@ -99,11 +95,11 @@ const MainContent = ({ children }) => {
                                     showModal(
                                         'Cueva del Levante',
                                         'Hogar de Sierpentez y epicentro del caos.',
-                                        'img/mapa_cueva.jpg'
+                                        'img/mapa_cueva.png'
                                     )
                                 }
                             >
-                                <img src="img/mapa_cueva.jpg" alt="Cueva del Levante" />
+                                <img src="img/mapa_cueva.png" alt="Cueva del Levante" />
                                 <p>Cueva del Levante</p>
                             </div>
                         </div>
@@ -118,52 +114,28 @@ const MainContent = ({ children }) => {
                                 onClick={() =>
                                     showModal(
                                         'Sierpentez',
-                                        'Legendario envuelto en algas (Dragón/Agua).',
-                                        'img/sierpentez.jpg'
+                                        'Legendario envuelto en algas (Dragón/Fuego).',
+                                        'img/sierpentez.png'
                                     )
                                 }
                             >
-                                <img src="img/sierpentez.jpg" alt="Sierpentez" />
+                                <img src="img/sierpentez.png" alt="Sierpentez" />
                                 <p>Sierpentez</p>
                             </div>
+                        </div>
+                        <div className="gallery grid">
                             <div
                                 className="gallery-item"
                                 onClick={() =>
                                     showModal(
-                                        'Navajín',
-                                        'Navaja marina con "Oleaje Nocturno" (Acero/Siniestro).',
-                                        'img/navajin.jpg'
+                                        'Sierpentez',
+                                        'Legendario envuelto en algas (Dragón/Fuego).',
+                                        'img/sierpentez.png'
                                     )
                                 }
                             >
-                                <img src="img/navajin.jpg" alt="Navajín" />
-                                <p>Navajín</p>
-                            </div>
-                            <div
-                                className="gallery-item"
-                                onClick={() =>
-                                    showModal(
-                                        'Gambascal',
-                                        'Gamba luchadora con "Marisquito" (Agua/Fuego).',
-                                        'img/gambascal.jpg'
-                                    )
-                                }
-                            >
-                                <img src="img/gambascal.jpg" alt="Gambascal" />
-                                <p>Gambascal</p>
-                            </div>
-                            <div
-                                className="gallery-item"
-                                onClick={() =>
-                                    showModal(
-                                        'Molintón',
-                                        'Confunde a los Tauros con molinos (Roca/Viento).',
-                                        'img/molinton.jpg'
-                                    )
-                                }
-                            >
-                                <img src="img/molinton.jpg" alt="Molintón" />
-                                <p>Molintón</p>
+                                <img src="img/Froakie.png" alt="Sierpentez" />
+                                <p>Froakie</p>
                             </div>
                         </div>
                     </section>
@@ -203,12 +175,12 @@ const MainContent = ({ children }) => {
                                 onClick={() =>
                                     showModal(
                                         'Profesor Emilio',
-                                        'Investigador de Pokémon marinos.',
-                                        'img/profesor_emilio.jpg'
+                                        'Investigador de Pokémon.',
+                                        'img/profesor_emilio.png'
                                     )
                                 }
                             >
-                                <img src="img/profesor_emilio.jpg" alt="Profesor Emilio" />
+                                <img src="img/profesor_emilio.png" alt="Profesor Emilio" />
                                 <p>Profesor Emilio</p>
                             </div>
                         </div>
@@ -219,11 +191,11 @@ const MainContent = ({ children }) => {
                                     showModal(
                                         'Antonio Lobato',
                                         'Vive con su abuela en un pueblo costero. Su inicial dependerá de tu elección.',
-                                        'img/antoniolobato.jpg'
+                                        'img/antoniolobato.png'
                                     )
                                 }
                             >
-                                <img src="img/antoniolobato.jpg" alt="Antonio Lobato" />
+                                <img src="img/antoniolobato.png" alt="Antonio Lobato" />
                                 <p>Antonio Lobato</p>
                             </div>
                             <div
@@ -231,7 +203,7 @@ const MainContent = ({ children }) => {
                                 onClick={() =>
                                     showModal(
                                         'J.Cañas',
-                                        'Villano con yate y abanicos de oro. Líder del Team Almendrao.',
+                                        'Creador del juego i lider de gimnasio tipo Elétrico.',
                                         'img/JCañas.png'
                                     )
                                 }
@@ -259,12 +231,22 @@ const MainContent = ({ children }) => {
                     {isModalOpen && (
                         <div className="modal-overlay" onClick={closeModal}>
                             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                                <button className="modal-close" onClick={closeModal}>
-                                    &times;
-                                </button>
+                                {modalContent.video && (
+                                    <video
+                                        className="modal-bg-video"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    >
+                                        <source src={modalContent.video} type="video/mp4" />
+                                    </video>
+                                )}
                                 <h2>{modalContent.title}</h2>
                                 <p>{modalContent.description}</p>
-                                <img src={modalContent.image} alt={modalContent.title} />
+                                {!modalContent.video && modalContent.image && (
+                                    <img src={modalContent.image} alt={modalContent.title} />
+                                )}
                             </div>
                         </div>
                     )}

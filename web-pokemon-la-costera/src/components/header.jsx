@@ -40,7 +40,7 @@ const Header = ({ onNavigate }) => {
     return (
         <header>
             <div className="contenedor">
-                <h2 className="logotipo" onClick={() => onNavigate('home')}>Pokémon RPG</h2>
+                <h2 className="logotipo" onClick={() => onNavigate('home')}>Pokémon: La Costera</h2>
                 <button
                     className="menu-toggle"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
